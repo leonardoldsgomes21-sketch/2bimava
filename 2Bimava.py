@@ -1,3 +1,4 @@
+#LEONAARDO ALMEIDA 1:logica matematica
 def calcular_imc(p, a):
     """
     Função desenvolvida pelo Programador 1.
@@ -9,3 +10,9 @@ def calcular_imc(p, a):
     """
     imc = p / (a ** 2)
     return imc
+#kennedy 2: classificação de dados
+def classificar(valor_imc):
+    if valor_imc < 25:
+        return"normal"
+    else:
+        return"acima do peso"
