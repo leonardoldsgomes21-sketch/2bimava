@@ -16,3 +16,9 @@ def classificar(valor_imc):
         return"normal"
     else:
         return"acima do peso"
+#Breno 3: especialista em Conteúdo ---
+def gerar_aviso(status):
+    """
+    Recebe o status (texto) e retorna uma recomendação de saúde personalizada
+    """
+    if status
