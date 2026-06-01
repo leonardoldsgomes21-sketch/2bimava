@@ -21,4 +21,9 @@ def gerar_aviso(status):
     """
     Recebe o status (texto) e retorna uma recomendação de saúde personalizada
     """
-    if status
+    if status == "IDEAL":
+        return "Òtimo! Mantenha seus hábitos saudáveis"
+    elif status == "ACIMA DO PESO":
+        return "Atenção: Considere buscar uma orientação médica"
+    else:
+        return "Status não reconhece."
