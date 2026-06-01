@@ -13,9 +13,9 @@ def calcular_imc(p, a):
 #kennedy 2: (classificação de dados)
 def classificar(valor_imc):
     if valor_imc < 25:
-        return "IDEAL"
+        return"normal"
     else:
-        return "ACIMA DO PESO"
+        return"acima do peso"
 #Breno 3: (especialista em Conteúdo) 
 def gerar_aviso(status):
     """
@@ -29,24 +29,24 @@ def gerar_aviso(status):
         return "Status não reconhece."
 
 
-# leonardo Leite 4:(engenheiro de integração)
+# leonardo Leite 4: (engenheiro de integração)
 def main():
-    # fluxo principal do sistema: coleta dados, integra as funções e exibe o resultado
-    print("--- bem-vindo ao avaliador de saude inteligente (HealthTech) ---")
+    # fluxo: solicita os dados ao usuario
     try:
-        # solicita os dados ao usuario
-        peso = float(input("Digite o seu peso (em kg, ex:70.5): "))
-        altura = float(input("Digite a sua altura (em metros, ex:1.75): "))
-        # execução do fluxo de dados
+        peso = float(input("digite o seu peso (em kg, ex:70.5): "))
+        altura = float(input("digite a sua altura (em metros, ex:1.75): "))
+        # execução do fluxo de dados (passando o bastão de uma função para outra)
         resultado_imc = calcular_imc(peso, altura)
-        status = classificar(resultado_imc)
-        recomendacao = gerar_aviso(status)
-        print(f"IMC: {resultado_imc:.2f} - Status: {status}")
-        print(f"Recomendação: {recomendacao}")
+        categoria = classificar(resultado_imc)
+        # normal -> IDEAL, acima do peso -> ACIMA DO PESO
+        if categoria == "normal":
+            status_classificacao = "IDEAL"
+        else:
+            status_classificacao = "ACIMA DO PESO"
+        recomendacao = gerar_aviso(status_classificacao)
+        print(f"IMC: {resultado_imc:.2f} - Categoria: {categoria} - {recomendacao}")
     except ValueError:
         print("Entrada inválida. Certifique-se de digitar números para peso e altura.")
-    except Exception as e:
-        print(f"Erro: {e}")
 
 
 if __name__ == "__main__":
